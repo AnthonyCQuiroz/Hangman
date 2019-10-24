@@ -1,50 +1,96 @@
-myWord = "mississippi"
+# Anthony Quiroz 
 
-framelist = ( '''
-    +---+
-    O   |
-   /|\\  |
-   / \\  |
-       ===
-''')
-print(framelist)
 
-#how to turn a string into a list
-myString = "mississippi"
-myList = list(myString)
-print(myList)
+mystery = list("mississippi")
+guessList = list("___________")
+
+guess = input("Guess a letter: ")
+
+index = 0
+for letter in mystery:
+	if letter == guess:
+		guessList[index] = guess 
+	index += 1
+print(guessList)
+
+
+
 secret = []
 # how to create a list _ in place of letter
-for a in myList:
-	secret.append("_")
-
-print(secret) 
-
-# how to replace an _ with a letter
-
-secret[2] = "s"
-print(secret)
-
-choice = input ("Type a word: ")
-
-if choice == myWord:
-		print("It's a match")
-else:
-		print("Not a match")
 
 
 	# how to check if a letter is in a word 
 letter = input("Type a letter: ")
-if letter in myWord:
+if letter in mystery:
 	print("Letter is in the word: ")
-		
-
 else:
 	print("Letter is not in the word")
-		
+	
+#how to replace items in a list 
 
-count = 0 
-for s in myWord:
-	if s == letter:
-		print(count)
-	count += 1 
+mystery = list("mississippi")
+guessList = list("___________")
+
+guess = input("Guess a letter: ")
+
+index = 0
+for letter in mystery:
+	if letter == guess:
+		guessList[index] = guess 
+	index += 1
+print(guessList)
+
+# how to keep track of misses
+secret = "mississippi"
+misses = list(secret)
+misses = 0
+
+
+hangList = [ 
+'''
+     +===+
+     O   |
+         |
+         |
+        ===''' ,
+'''
+     +===+
+     O   |
+     |   |
+         |
+        === ''',
+'''
+     +===+
+     O   |
+    /|   |
+         |
+        === ''',
+'''
+     +===+
+     O   |
+    /|\\  |
+         |
+        === ''',
+'''
+     +===+
+     O   |
+    /|\\  |
+    /    |
+        === ''',
+'''
+     +===+
+     O   |
+    /|\\  |
+    / \\  |
+        ==='''
+
+        ]
+
+while misses < 7:
+	print(hangList[misses])
+	guess = input("Guess a letter: ")
+	if guess in secret:
+		# loop through secret and find all the matching letters
+		print("That letter is in the secret word")
+	else:
+		misses = misses + 1 
